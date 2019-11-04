@@ -240,33 +240,6 @@ router.post('/add_business', function(req,res,next) {
   });
 });
 
-router.post('/add_business', function(req,res,next) {
-  connection.connect(function(err) {
-    if (err) throw err;
-
-    var input_b1 = req.body.b1;
-    var input_b2 = req.body.b2;
-    var input_b3 = req.body.b3;
-    var input_b4 = req.body.b4;
-    var input_b5 = req.body.b5;
-    var input_b6 = req.body.b6;
-    var input_b7 = req.body.b7;
-    var input_b8 = req.body.b8;
-    var input_b9 = req.body.b9;
-    var sql = "INSERT INTO Business (business_id, full_address, active, categories, city, review_count, " +
-        "business_name, state, stars) VALUES (?,?,?,?,?,?,?,?,?)";
-    var inserts = [input_b1, input_b2, input_b3, input_b4, input_b5, input_b6, input_b7, input_b8, input_b9];
-    sql = mysql.format(sql, inserts);
-
-    var query = connection.query(sql,function (error, results, fields) {
-      if (error) throw error;
-      res.send(results);
-    });
-
-    console.log(query.sql);
-  });
-});
-
 router.post('/add_checkins', function(req,res,next) {
   connection.connect(function(err) {
     if (err) throw err;
@@ -325,7 +298,7 @@ router.post('/add_users', function(req,res,next) {
     var input_u2 = req.body.u2;
     var input_u3 = req.body.u3;
     var input_u4 = req.body.u4;
-    var sql = "INSERT INTO Business (user_id, name, average_stars, review_count) VALUES (?,?,?,?)";
+    var sql = "INSERT INTO Users (user_id, name, average_stars, review_count) VALUES (?,?,?,?)";
     var inserts = [input_u1, input_u2, input_u3, input_u4];
     sql = mysql.format(sql, inserts);
 
