@@ -1,5 +1,9 @@
 # cs460
 Programming Assignment 1 - Restaurant Reviewing Application
 
-The main backend code is in index.js file.
-The main frontend code is in index.pug file.
+Three main files:
+1) index.js
+2) index.pug
+3) SQL Queries.txt
+
+Group member: Naiwen Xu, Dingjie Chen
