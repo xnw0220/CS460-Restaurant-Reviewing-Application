@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<link rel='stylesheet' href='../stylesheets/style.css' />
+<h1> CS460 PA1 </h1>
+
+
+<h2>Search</h2>
+<h3>10 Cases</h3>
+
+<body>
+<p>
+<form method="post" , action="/search1">
+<p>1. Example: Display the name of all users that have at least 1 review. </p >
+<span>Display</span> <input type="text" placeholder="*/user_id/name" id="cs1" name="cs1" />
+<span>of all users that have at least</span> <input type="text" placeholder="number" id="cw1" name="cw1" />
+<span>reviews.</span>
+<button type="search">Search</button>
+</form>
+</p >
+<br />
+
+<p>
+<form method="post" , action="/search2">
+<p>2. Example: Display the name of all users that have made 2 reviews or less. </p >
+<span>Display</span> <input type="text" placeholder="*/user_id/name" id="cs2" name="cs2" />
+<span>that have made</span> <input type="text" placeholder="number" id="cw2" name="cw2" />
+<span>reviews or less.</span>
+<button type="search">Search</button>
+</form>
+</p >
+<br />
+
+<p>
+<form method="post" , action="/search3">
+<p>3. Example: Display the names of businesses that are active/inactive. </p >
+<span>Display</span> <input type="text" placeholder="*/business_id/business_name" id="cs3" name="cs3" size="30"/>
+<span>of businesses that are</span>
+<select id="cw3" name="cw3">
+    <option value="emp"></option>
+    <option value="active">active</option>
+    <option value="inactive">inactive</option>
+</select>
+<span>.</span>
+<button type="search">Search</button>
+</form>
+</p >
+<br />
+
+<p>
+<form method="post" , action="/search4">
+<p>4. Example: Display the names of all pizza restaurants that have a rating of 4 stars or above. </p >
+<span>Display the</span> <input type="text" placeholder="business_id/business_name/full_address" id="cs4" name="cs4" size="35"/>
+<span>of all</span> <input type="text" placeholder="category of restaurants" id="cw4" name="cw4" />
+<span>restaurants that have a rating of</span> <input type="text" placeholder="number" id="ca4" name="ca4" />
+<span>stars or above.</span>
+<button type="search">Search</button>
+</form>
+</p >
+<br />
+
+<p>
+<form method="post" , action="/search5">
+<p>5. Example: Display the number of stores that had at least one check-in on Friday. </p>
+<span>Display the number of stores that had at least</span> <input type="text" placeholder="number" id="cs5" name="cs5" />
+<span>check-in on</span> <input type="text" placeholder="Sunday ~ Saturday" id="cw5" name="cw5" />
+<span>.</span>
+<button type="search">Search</button>
+</form>
+</p >
+<br />
+
+<p>
+<form method="post", action="/search6">
+<p>6. Example: Display the text of all reviews made for the “Arcadia Tavern”. </p>
+<span>Display the text of all reviews made for</span> <input type="text" placeholder="business name" id="cs6" name="cs6" />
+<span>.</span>
+<button type="search">Search</button>
+</form>
+</p >
+<br />
+
+<p>
+<form method="post" , action="/search7">
+<p>7. Example: Display the names of the restaurants that have taken at least one 1-star reviews. </p>
+<span>Display</span> <input type="text" placeholder="*/business_id/business_name" id="cs7" name="cs7" size="30"/>
+<span>of the restaurants that have taken at least one</span> <input type="text" placeholder="number" id="cw7" name="cw7" />
+<span>-star reviews.</span>
+<button type="search">Search</button>
+</form>
+</p >
+<br />
+
+<p>
+<form method="post" , action="/search8">
+<p>8. Example: Display the average rating and total number of reviews of all KFC stores. </p>
+<span>Display the average rating and total number of reviews of all</span> <input type="text" placeholder="business_name" id="cs8" name="cs8" />
+<span>restaurants.</span>
+<button type="search">Search</button>
+</form>
+</p >
+<br />
+
+<p>
+<form method="post" , action="/search9">
+<p>9. Example: Display a list of the ids of the top 10 stores in terms of the number of reviews they have received. </p>
+<span>Display</span> <input type="text" placeholder="*/business_id/business_name" id="cs9" name="cs9" size="30" />
+<span>of the top</span> <input type="text" placeholder="number" id="cw9" name="cw9" />
+<span>stores in terms of the number of reviews they have received.</span>
+<button type="search">Search</button>
+</form>
+</p >
+<br />
+
+<p>
+<form method="post" , action="/search10">
+<span>10. Display the name of the user that has made the most reviews. </span> <button type="search">Search</button>
+</form>
+</p >
+<br />
+</body>
+
+
+<h2>Insertion</h2>
+<span>INSERT INTO</span >
+<select id="add" name="add" onchange="action_choose()">
+    <option value="emp"></option>
+    <option value="business">Business</option>
+    <option value="checkins">Checkins</option>
+    <option value="reviews">Reviews</option>
+    <option value="users">Users</option>
+</select>
+<p></p>
+<div id="business" style="display:none">
+<form method="post", action="/add_business">
+<p class="redtext">If the value is unknown, then input "null" for string and "0" for integer/float.</p>
+    <span>business_id</span> <input type="text" placeholder="string" id="b1" name="b1" /> <p></p>
+    <span>full_address</span> <input type="text" placeholder="string" id="b2" name="b2" /> <p></p>
+    <span>active</span> <input type="text" placeholder="TRUE/FALSE" id="b3" name="b3" /> <p></p>
+    <span>categories</span> <input type="text" placeholder="string" id="b4" name="b4" /> <p></p>
+    <span>city</span> <input type="text" placeholder="string" id="b5" name="b5" /> <p></p>
+    <span>review_count</span> <input type="text" placeholder="integer" id="b6" name="b6" /> <p></p>
+    <span>business_name</span> <input type="text" placeholder="string" id="b7" name="b7" /> <p></p>
+    <span>state</span> <input type="text" placeholder="string" id="b8" name="b8" /> <p></p>
+    <span>stars</span> <input type="text" placeholder="float" id="b9" name="b9" /> <p></p>
+<button type="add">Add</button>
+</form>
+</div>
+<div id="checkins" style="display:none">
+<form method="post", action="/add_checkins">
+<p class="redtext">If the value is unknown, then input "null" for string and "0" for integer.</p>
+    <span>business_id</span> <input type="text" placeholder="string" id="c1" name="c1" /> <p></p>
+    <span>Sunday</span> <input type="text" placeholder="integer" id="c2" name="c2" /> <p></p>
+    <span>Monday</span> <input type="text" placeholder="integer" id="c3" name="c3" /> <p></p>
+    <span>Tuesday</span> <input type="text" placeholder="integer" id="c4" name="c4" /> <p></p>
+    <span>Wednesday</span> <input type="text" placeholder="integer" id="c5" name="c5" /> <p></p>
+    <span>Thursday</span> <input type="text" placeholder="integer" id="c6" name="c6" /> <p></p>
+    <span>Friday</span> <input type="text" placeholder="integer" id="c7" name="c7" /> <p></p>
+    <span>Saturday</span> <input type="text" placeholder="integer" id="c8" name="c8" /> <p></p>
+<button type="add">Add</button>
+</form>
+</div>
+<div id="reviews" style="display:none">
+<form method="post", action="/add_reviews">
+<p class="redtext">If the value is unknown, then input "null" for string and "0" for integer/float.</p>
+    <span>review_id</span> <input type="text" placeholder="string" id="rr1" name="r1" /> <p></p>
+    <span>business_id</span> <input type="text" placeholder="string" id="rr2" name="r2" /> <p></p>
+    <span>user_id</span> <input type="text" placeholder="string" id="rr3" name="r3" /> <p></p>
+    <span>stars</span> <input type="text" placeholder="float" id="rr4" name="r4" /> <p></p>
+    <span>review_date</span> <input type="text" placeholder="date" id="rr5" name="r5" /> <p></p>
+    <span>review_text</span> <input type="text" placeholder="string" id="rr6" name="r6" /> <p></p>
+<button type="add">Add</button>
+</form>
+</div>
+<div id="users" style="display:none">
+<form method="post", action="/add_users">
+<p class="redtext">If the value is unknown, then input "null" for string and "0" for integer/float.</p>
+    <span>user_id</span> <input type="text" placeholder="string" id="u1" name="u1" /> <p></p>
+    <span>user_name</span> <input type="text" placeholder="string" id="u2" name="u2" /> <p></p>
+    <span>average_stars</span> <input type="text" placeholder="float" id="u3" name="u3" /> <p></p>
+    <span>review_count</span> <input type="text" placeholder="integer" id="u4" name="u4" /> <p></p>
+<button type="add">Add</button>
+</form>
+</div>
+<br />
+script.
+    function action_choose() {
+        switch (document.getElementById("add").value) {
+            case "business":
+                document.getElementById("business").style.display = "block";
+                document.getElementById("checkins").style.display = "none";
+                document.getElementById("reviews").style.display = "none";
+                document.getElementById("users").style.display = "none";
+                break;
+
+            case "checkins":
+                document.getElementById("business").style.display = "none";
+                document.getElementById("checkins").style.display = "block";
+                document.getElementById("reviews").style.display = "none";
+                document.getElementById("users").style.display = "none";
+                break;
+
+            case "reviews":
+                document.getElementById("business").style.display = "none";
+                document.getElementById("checkins").style.display = "none";
+                document.getElementById("reviews").style.display = "block";
+                document.getElementById("users").style.display = "none";
+                break;
+
+            case "users":
+                document.getElementById("business").style.display = "none";
+                document.getElementById("checkins").style.display = "none";
+                document.getElementById("reviews").style.display = "none";
+                document.getElementById("users").style.display = "block";
+                break;
+
+            default:
+                break;
+        }
+    }
+
+
+<h2>Deletion</h2>
+<form method="post", action="/delete">
+<span>DELETE FROM</span>
+<select id="delete_table" name="delete_table">
+    <option value="empty"></option>
+    <option value="business">Business</option>
+    <option value="checkins">Checkins</option>
+    <option value="reviews">Reviews</option>
+    <option value="users">Users</option>
+</select>
+<p></p>
+<span>WHERE</span> <input type="text" placeholder="column" id="d1" name="d1" />
+<span>=</span> <input type="text" placeholder="" id="d2" name="d2" />
+<p></p>
+<button type="delete">Delete</button>
+</form>
+<br />
+<br />
+
+
+<h2>Update</h2>
+<form method="post", action="/update">
+<span>UPDATE</span>
+<select id="update_table" name="update_table">
+    <option value="emp"></option>
+    <option value="business">Business</option>
+    <option value="checkins">Checkins</option>
+    <option value="reviews">Reviews</option>
+    <option value="users">Users</option>
+</select>
+<p></p>
+<span>SET</span> <input type="text" placeholder="column" id="up1" name="up1" />
+<span>=</span> <input type="text" placeholder="" id="up2" name="up2" />
+<p></p>
+<span>WHERE</span> <input type="text" placeholder="column" id="up3" name="up3" />
+<span>=</span> <input type="text" placeholder="" id="up4" name="up4" />
+<p></p>
+<button type="update">Update</button>
+</form>
+
+
+</html>
+
+
+
+
+
+
