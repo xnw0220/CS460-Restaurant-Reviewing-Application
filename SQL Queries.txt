@@ -1,0 +1,44 @@
+1. SELECT * 
+   FROM Users U 
+   WHERE U.review_count >= 1
+
+2. SELECT U.name 
+   FROM Users U
+   WHERE U.review_count <= 2
+
+3. SELECT * 
+   FROM Business B 
+   WHERE B.active = "FALSE"
+
+4. SELECT B.business_name 
+   FROM Business B
+   WHERE B.categories LIKE `%pizza%` AND B.stars >= 4
+
+5. SELECT COUNT(*) 
+   FROM Business B, Checkins C
+   WHERE B.business_id = C.business_id AND C.Friday >= 1
+
+6. SELECT R.review_text 
+   FROM Business B, Reviews R
+   WHERE B.business_id = R.business_id AND 
+         B.business_name = "Arcadia Tavern"
+
+7. SELECT B.business_name 
+   FROM Business B, Reviews R
+   WHERE B.business_id = R.business_id AND (R.stars = 1 OR R.stars = 2)
+
+8. SELECT AVG(B.stars), SUM(B.review_count) 
+   FROM Business B 
+   WHERE B.business_name = "KFC"
+
+9. SELECT B.business_id
+   FROM Business B 
+   ORDER BY B.review_count DESC 
+   LIMIT 10
+
+10. SELECT U.name 
+    FROM Users U 
+    WHERE U.review_count >= ALL (SELECT U2.review_count
+			 	 FROM Users U2)
+
+
