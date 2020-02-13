@@ -1,4 +1,4 @@
-# cs460
+# CS460
 Programming Assignment 1 - Restaurant Reviewing Application
 
 Three main files:
